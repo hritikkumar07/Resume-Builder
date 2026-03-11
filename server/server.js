@@ -52,7 +52,7 @@ await connectDB()
 // CORS should be FIRST - before any other middleware
 app.use(
     cors({
-    origin: "http://localhost:5173", 
+    origin: "https://resume-builder-frontend-ruby.vercel.app/", 
     credentials: true
 }))
 
