@@ -13,7 +13,7 @@ const ProfessionalSummaryForm = ({data, onChange, setResumeData}) => {
         try {
             setIsGenerating(true)
             const prompt = `enhance my professioinal summary "${data}"`;
-            const response = await api.post('api/ai/enhance-pro-sum', {userContent: prompt}, {headers: { Authorization: token }})
+            const response = await api.post('/api/ai/enhance-pro-sum', {userContent: prompt}, {headers: { Authorization: `Bearer ${token }` }})
             setResumeData(prev => ({...prev, professional_summary: response.data.enhancedContent}))
         } catch (error) {
             toast.error(error?.response?.data?.message || error.message)    
