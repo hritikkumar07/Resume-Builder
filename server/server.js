@@ -8,25 +8,32 @@ import aiRouter from './routes/aiRoutes.js';
 
 const app = express();
 
-// CORS - no trailing slash
 app.use(cors({
-  origin: "https://resume-builder-frontend-ruby.vercel.app",
+  origin: process.env.CLIENT_URL || "http://localhost:5173",
   credentials: true
 }));
 
 app.use(express.json());
 
-//  Only DB connection inside async function
-const startServer = async () => {
-  await connectDB();
-};
-
-startServer();
-
-// Routes OUTSIDE startServer()
 app.get('/', (req, res) => res.send("Server is live.."));
+app.get('/api/health', (req, res) => res.send("OK"));
 app.use('/api/users', userRouter);
 app.use('/api/resumes', resumeRouter);
 app.use('/api/ai', aiRouter);
 
-export default app;
+const PORT = process.env.PORT || 3000;
+
+//  Add this at the bottom
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`Server is running on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("Server failed to start:", error);
+    process.exit(1);
+  }
+};
+
+startServer();

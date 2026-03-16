@@ -10,10 +10,18 @@ const ProfessionalSummaryForm = ({data, onChange, setResumeData}) => {
     const {token} = useSelector(state => state.auth)
     const [isGenerating, setIsGenerating] = useState(false)
     const generateSummary = async () => {
+        // prevent multiple clicks
+    if (isGenerating) return;
+
+    // prevent empty prompt
+    if (!data?.trim()) {
+        toast.error("Please write your summary first");
+        return;
+    }
         try {
             setIsGenerating(true)
             const prompt = `enhance my professioinal summary "${data}"`;
-            const response = await api.post('/api/ai/enhance-pro-sum', {userContent: prompt}, {headers: { Authorization: `Bearer ${token }` }})
+            const response = await api.post('/api/ai/enhance-pro-sum', {userContent: prompt}, {headers: { Authorization: `${token }` }})
             setResumeData(prev => ({...prev, professional_summary: response.data.enhancedContent}))
         } catch (error) {
             toast.error(error?.response?.data?.message || error.message)    
