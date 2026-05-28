@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="500" height="120" viewBox="0 0 500 120">
+  <rect width="100%" height="100%" fill="black"/>
+  <text x="20" y="82"
+        font-family="Arial, Helvetica, sans-serif"
+        font-size="72"
+        font-weight="700"
+        fill="#f5f5f5">
+    resume
+  </text>
+  <circle cx="445" cy="72" r="12" fill="#00d26a"/>
+</svg>
