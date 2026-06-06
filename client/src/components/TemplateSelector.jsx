@@ -19,9 +19,22 @@ const TemplateSelector = ({ selectedTemplate, onChange}) => {
             id:"minimal",
             name:"Minimal",
             preview:"Ultra-clean design that puts your content front and center"
-
         },
-        
+        {
+            id: "minimal-Image",
+            name: "Minimal Image",
+            preview: "Minimalistic design with a profile picture"
+        },
+        {
+            id: "professional",
+            name: "Professional",
+            preview: "A polished, structured layout for corporate and formal roles"
+        },
+        {
+            id: "creative",
+            name: "Creative",
+            preview: "A bold and expressive design to stand out in creative fields"
+        }
     ]
   return (
     <div className='relative'>
@@ -30,7 +43,7 @@ const TemplateSelector = ({ selectedTemplate, onChange}) => {
             <span className='max-sm:hidden'>Template</span>
         </button>
         {isopen && (
-            <div className='absolute top-full w-xs p-3 mt-2 space-y-3 z-10 bg-white rounded-md border-gray-200 border  shadow-sm'>
+            <div className='absolute top-full w-xs p-3 mt-2 space-y-3 z-10 bg-white rounded-md border-gray-200 border shadow-sm max-h-[60vh] overflow-y-auto'>
                 {templates.map((template)=>(
                    <div key={template.id} onClick={()=> {onChange(template.id);
                     setIsOpen(false)

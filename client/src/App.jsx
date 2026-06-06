@@ -5,10 +5,9 @@ import Layout from './pages/Layout'
 import Dashboard from './pages/Dashboard'
 import ResumeBuilder from './pages/ResumeBuilder'
 import Preview from './pages/Preview'
-import Login from './pages/Login'
 import { useDispatch } from 'react-redux'
 import api from './confix/api'
-import { setLoading } from './app/features/authSlice'
+import { login, setLoading } from './app/features/authSlice'
 import {Toaster} from 'react-hot-toast'
 const App = () => {
 
@@ -20,9 +19,9 @@ const App = () => {
       if(token){
         const {data} = await api.get('/api/users/data', {headers: {Authorization: token}})
         if(data.user){
-          dispatch(Login({token, user: data.user}))
+          dispatch(login({token, user: data.user}))
         }
-        dispatch(setLoading(true))
+        dispatch(setLoading(false))
       }else{
        dispatch(setLoading(false))
     
@@ -36,8 +35,10 @@ const App = () => {
 
   useEffect(()=>{
     getUserData()
-
-  },)
+    // Always force dark mode
+    document.body.classList.add('dark')
+    localStorage.setItem('theme', 'dark')
+  }, [])
   return (
     <>
     <Toaster/>

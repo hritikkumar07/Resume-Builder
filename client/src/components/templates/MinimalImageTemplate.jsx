@@ -182,7 +182,7 @@ const MinimalImageTemplate = ({ data, accentColor }) => {
                                             {project.type}
                                         </p>
                                         {project.description && (
-                                            <ul className="list-disc list-inside text-sm text-zinc-700  space-y-1">
+                                            <ul className="list-disc list-inside text-sm text-zinc-700 space-y-1">
                                                 {project.description.split("\n").map((line, i) => (
                                                     <li key={i}>{line}</li>
                                                 ))}

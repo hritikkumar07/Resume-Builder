@@ -1,62 +1,77 @@
 import React from 'react'
-import {Zap} from 'lucide-react'
+import { Zap, Sparkles, Shield, Download, LayoutTemplate, CheckCircle2 } from 'lucide-react'
 import Title from './Title';
 
 const Features = () => {
-    const [isHover, setIsHover] = React.useState(false);
+  const featuresList = [
+    {
+      title: "AI Co-Pilot Content Writer",
+      description: "Generate highly professional summaries, job descriptions, and skills tailored to your exact industry automatically.",
+      colorClass: "bg-indigo-50 dark:bg-indigo-950/30 text-indigo-600 dark:text-indigo-400 border-indigo-100 dark:border-indigo-900/40",
+      icon: Sparkles
+    },
+    {
+      title: "ATS Compatibility Engine",
+      description: "Recruiter-approved templates modeled specifically to score high with Automated Tracking Systems (ATS) and human screeners.",
+      colorClass: "bg-emerald-50 dark:bg-emerald-950/30 text-green-600 dark:text-green-400 border-green-100 dark:border-green-900/40",
+      icon: CheckCircle2
+    },
+    {
+      title: "Premium Design Themes",
+      description: "Instantly switch between Classic, Modern, and Minimal layouts with custom color palettes and elegant spacing.",
+      colorClass: "bg-purple-50 dark:bg-purple-950/30 text-purple-600 dark:text-purple-400 border-purple-100 dark:border-purple-900/40",
+      icon: LayoutTemplate
+    },
+    {
+      title: "Instant Recruiter Export",
+      description: "Download beautifully structured PDF copies, ready for job submissions, or generate high-speed public shareable links.",
+      colorClass: "bg-amber-50 dark:bg-amber-950/30 text-amber-600 dark:text-amber-400 border-amber-100 dark:border-amber-900/40",
+      icon: Download
+    }
+  ];
+
   return (
-<div id='features' className='flex flex-col items-center my-10 scroll-mt-12'>
-
-      <div className="flex items-center gap-2 text-sm text-blue-800 bg-blue-400/10 rounded-full px-6 py-1.5">
-            <Zap width={14}/>
-            <span>Simple Process</span>
+    <div id='features' className='max-w-7xl mx-auto px-6 py-20 scroll-mt-12 bg-slate-50 dark:bg-slate-950 transition-colors duration-300'>
+      <div className="flex flex-col items-center">
+        <div className="flex items-center gap-2 text-xs font-bold text-indigo-600 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/40 border border-indigo-100 dark:border-indigo-900/50 rounded-full px-4 py-1.5 mb-4">
+          <Zap size={12}/>
+          <span>SaaS Ecosystem Features</span>
         </div>
-        <Title title='Build your resume' description='Our Streamlined process helps your create a professional resume in minutes with intelligent AI-powered tools and features.'/>
-    
+        
+        <Title 
+          title='Powerful features to double your callback rate' 
+          description='Our streamlined editor helps you create high-performance professional resumes in minutes with direct AI assistance and formatting control.'
+        />
+      </div>
 
-            <div className="flex flex-col md:flex-row items-center xl:-mt-10">
-                <img className="max-w-2xl w-full xl:-ml-32" src="https://raw.githubusercontent.com/prebuiltui/prebuiltui/main/assets/features/group-image-1.png" alt="" />
-                <div className="px-4 md:px-0" onMouseEnter={() => setIsHover(true)} onMouseLeave={() => setIsHover(false)}>
-                    <div className={"flex items-center justify-center gap-6 max-w-md group cursor-pointer"}>
-                        <div className={`p-6 group-hover:bg-violet-100 border border-transparent group-hover:border-violet-300  flex gap-4 rounded-xl transition-colors ${!isHover ? 'border-violet-300 bg-violet-100' : ''}`}>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6 stroke-violet-600"><path d="M2.586 17.414A2 2 0 0 0 2 18.828V21a1 1 0 0 0 1 1h3a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h1a1 1 0 0 0 1-1v-1a1 1 0 0 1 1-1h.172a2 2 0 0 0 1.414-.586l.814-.814a6.5 6.5 0 1 0-4-4z" /><circle cx="16.5" cy="7.5" r=".5" fill="currentColor" /></svg>
-                            <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Real-Time Analytics</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">Get instant insights into your finances with live dashboards.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-                        <div className="p-6 group-hover:bg-green-100 border border-transparent group-hover:border-green-300 flex gap-4 rounded-xl transition-colors">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-6 stroke-green-600"><path d="M12 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7" /><path d="M18.375 2.625a1 1 0 0 1 3 3l-9.013 9.014a2 2 0 0 1-.853.505l-2.873.84a.5.5 0 0 1-.62-.62l.84-2.873a2 2 0 0 1 .506-.852z" /></svg>
-                            <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Bank-Grade Security</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">End-to-end encryption, 2FA, compliance with GDPR standards.</p>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="flex items-center justify-center gap-6 max-w-md group cursor-pointer">
-                        <div className="p-6 group-hover:bg-orange-100 border border-transparent group-hover:border-orange-300 flex gap-4 rounded-xl transition-colors">
-                            <svg className="size-6 stroke-orange-600" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M12 15V3" /><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" /><path d="m7 10 5 5 5-5" /></svg>
-                            <div className="space-y-2">
-                                <h3 className="text-base font-semibold text-slate-700">Customizable Reports</h3>
-                                <p className="text-sm text-slate-600 max-w-xs">Export professional, audit-ready financial reports for tax or internal review.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mt-16">
+        {featuresList.map((feat, index) => {
+          const IconComponent = feat.icon;
+          return (
+            <div 
+              key={index}
+              className="bg-white dark:bg-slate-900 border border-slate-200/80 dark:border-slate-800 rounded-3xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 group hover:-translate-y-1 relative overflow-hidden"
+            >
+              {/* Top soft visual blob */}
+              <div className="absolute -top-12 -right-12 w-24 h-24 bg-indigo-500/5 group-hover:bg-indigo-500/10 rounded-full blur-xl transition-all duration-300"></div>
+              
+              <div className={`inline-flex items-center justify-center p-3 rounded-2xl border ${feat.colorClass} mb-6`}>
+                <IconComponent className="size-6" />
+              </div>
+              
+              <h3 className="text-lg font-bold text-slate-900 dark:text-white group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors">
+                {feat.title}
+              </h3>
+              
+              <p className="mt-3 text-sm text-slate-500 dark:text-slate-400 leading-relaxed">
+                {feat.description}
+              </p>
             </div>
-            <style>{`
-                @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-            
-                * {
-                    font-family: 'Poppins', sans-serif;
-                }
-            `}</style>
-        </div>
-    );
+          );
+        })}
+      </div>
+    </div>
+  );
 };
-
-
 
 export default Features

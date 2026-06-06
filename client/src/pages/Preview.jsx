@@ -29,10 +29,10 @@ const Preview = () => {
 
   },[])
   return resumeData ? (
-    <div className='bg-slate-100'>
+    <div className='bg-slate-100 dark:bg-slate-950 min-h-screen transition-colors duration-300'>
       <div className='max-w-3xl mx-auto py-10'>
         <ResumePreview data={resumeData} template={resumeData.template} accentColor={resumeData.accent_color}
-        classes='py-4 bg-white'/>
+        classes=' py-4 bg-white text-gray-800'/>
 
       </div>
         </div>
