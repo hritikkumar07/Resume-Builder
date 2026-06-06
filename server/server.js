@@ -10,7 +10,7 @@ const app = express();
 
 app.use(cors({
   origin: ["http://localhost:5173",
-     "https://resume-builder-frontend-ruby.vercel.app/"],
+     "https://resume-builder-frontend-ruby.vercel.app"],
   credentials: true
 }));
 
