@@ -28,7 +28,7 @@ Backend-> Node.js, Express.js
 
 Database-> MongoDB
 
-Third-Party Services->
+Third-Party Services ==>
 
 Google Gemini AI – Resume optimization,
 
@@ -36,7 +36,7 @@ ImageKit – Image storage and processing
 
 🌍 Live Demo
 
-  https://resume-builderfrontend.vercel.app/
+https://resume-builder-frontend-ruby.vercel.app/
 
 ⚙️ Installation & Setup
 
